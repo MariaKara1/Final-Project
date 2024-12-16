@@ -1,10 +1,19 @@
-import random
-array = ["bob", "jake", "john"]
+from IPython.display import clear_output
 
+def display_board(board):
+    print(board[0]+" | "+board[1]+" | "+board[2] + "\n---------" )
+    print(board[3]+" | "+board[4]+" | "+board[5] + "\n---------")
+    print(board[6]+" | "+board[7]+" | "+board[8])
 
-def get_word():
-    word = array[random.randint(0,len(array)-1)]
-    print(word)
+def player_input():
+    choice = input(player1 + " choose X or O!")
+    if choice not in ["X", "O"]:
+        print("Error. Please only choose X or O")
+    elif choice == "X":
+        return("X","O")
+    else:
+        return("O","X")
 
-get_word()
+def place_marker(board, marker, position):
+    board[position] = marker
 
