@@ -15,9 +15,9 @@ display_board(board)
 
 
 def player_input():
-    if choice not in ["X", "O"]:
+    if choice not in ["X", "O", "x", "o"]:
         print("Error. Please only choose X or O")
-    elif choice == "X":
+    elif choice == "X" or "x":
         return("X")
     else:
         return("O")
@@ -44,11 +44,11 @@ def winorno():
     else:
         return False
 
-def playing():
-    players = [player1, player2, player1, player2, player1, player2, player1, player2, player1]
+
+def playing(players):
     i=0
     while winorno() == False:
-       
+        
         b = int(input(players[i] + ", what position would you like to play? Choose from 0-8"))
         if i%2 == 0:
             board[b] = symb[0]
@@ -60,42 +60,42 @@ def playing():
             break
             return False
 
-playing()
+playing([player1, player2, player1, player2, player1, player2, player1, player2, player1])
 
 def end_screen():
     if winorno() == True:
         if board[0] == board[1] == board[2] or board[0] == board[3] == board[6]  or board[0] == board[4] == board[8]:
             if board[0] == "X":
                 if player_input() == "X":
-                    print("Game over!" + player1 + " won!")
+                    print("Game over! " + player1 + " won!")
                 else:
-                    print("Game over!" + player2 + " won!")
+                    print("Game over! " + player2 + " won!")
             if board[0] == "O":
                 if player_input() == "O":
-                    print("Game over!" + player1 + " won!")
+                    print("Game over! " + player1 + " won!")
                 else:
-                    print("Game over!" + player2 + " won!") 
+                    print("Game over! " + player2 + " won!") 
         if board[3] == board[4] == board[5] or board[1] == board[4] == board[7] or board[2] == board[4] == board[6]:
             if board[4] == "X":
                 if player_input() == "X":
-                    print("Game over!"+ player1 + " won!") 
+                    print("Game over! "+ player1 + " won!") 
                 else: 
-                    print("Game over!"+ player2 + " won!")
+                    print("Game over! "+ player2 + " won!")
             if board[4] == "O":
                 if player_input() == "O":
-                    print("Game over!"+ player1 + " won!") 
+                    print("Game over! "+ player1 + " won!") 
                 else:
-                    print("Game over!"+ player2 + " won!")
+                    print("Game over! "+ player2 + " won!")
         if board[6] == board[7] == board[8] or board[2] == board[5] == board[8]:
             if board[8] == "X":
                 if player_input() == "X":
-                    print("Game over!" + player1 + " won!")
+                    print("Game over! " + player1 + " won!")
                 else: 
-                    print("Game over!" + player2 + " won!")
+                    print("Game over! " + player2 + " won!")
             if board[8] == "O":
                 if player_input() == "O":
-                    print("Game over!"+ player1 + " won!")
+                    print("Game over! "+ player1 + " won!")
                 else:
-                    print("Game over!" + player2 + " won!")
+                    print("Game over! " + player2 + " won!")
 
 end_screen()
